@@ -1,4 +1,6 @@
 @import "mapas.less";
+@breakpointMobile: ~"(max-width: 767px)";
+@breakpointTablet: ~"(min-width: 768px) and (max-width: 1023px)";
 
 * {
     margin: 0;
@@ -35,6 +37,7 @@ header .container {
     padding: 16px 0;
 }
 
+
 .menu {
     display: flex;
     
@@ -62,29 +65,30 @@ section {
     column-gap: 1%;
     row-gap: 4%;
     width: 100%;
+    
+    .product-item img {
+        width: 100%;
+        border-radius: 16px;
+    }
+    
+    .product-button {
+        display: block;
+        background-color: #colors[buttoncolor];
+        color: #colors[cordotexto];
+        text-align: center;
+        padding: 8px 0;
+        border-radius: 8px;
+        margin-top: 8px;
+        text-decoration: none;
+        
+        &:hover {
+            background-color: #colors[buttoncolorhover];
+        }
+    }
+    
 }
 
-.product-item img {
-    width: 100%;
-    border-radius: 16px;
-}
-
-.product-button {
-    display: block;
-    background-color: #colors[buttoncolor];
-    color: #colors[cordotexto];
-    text-align: center;
-    padding: 8px 0;
-    border-radius: 8px;
-    margin-top: 8px;
-    text-decoration: none;
-}
-
-.product-button:hover {
-    background-color: #colors[buttoncolorhover];
-}
-
-@media screen and (max-width: 1023px) {
+@media @breakpointTablet {
     .container {
         max-width: 80%;
     }
@@ -95,12 +99,35 @@ section {
     }
 }
 
-@media screen and (max-width: 767px) {
-    .products {
-        display: block;
+@media @breakpointMobile {
+
+    header .container {
+
+        .branding {
+            margin-left: 8px;
+        }
+    
+        .menu {
+            margin-right: 8px;
+        }
     }
 
-    .product-item  {
-        margin-bottom: 32px;
+
+    section {
+
+        .container h2 {
+            margin-left: 8px;
+        }
+    
+        .products {
+            display: block;
+        }
+    
+        .product-item  {
+            margin-bottom: 32px;
+            margin-right: 8px;
+            margin-left: 8px;
+        }
     }
-}
+    
+    }
